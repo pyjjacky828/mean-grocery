@@ -1,0 +1,26 @@
+<div ng-repeat="item in items">
+    <div class="row">
+        <div class="col-2">
+            <md-button class="md-icon-button" aria-label="More" ng-click="purchase_unpurchase(item)" ng-show="!item.checked">
+                <img src="https://png.icons8.com/buy/p1em/50/000000" width="22" height="22">
+            </md-button>
+            <md-button class="md-icon-button" aria-label="More" ng-click="purchase_unpurchase(item)" ng-show="item.checked">
+                <img src="https://png.icons8.com/return-purchase/p1em/50/000000" width="22" height="22">
+            </md-button>
+
+        </div>
+
+        <div class="col-7">
+            <h3>{{item.title}}
+                <span class="oi oi-check" ng-if="item.checked" style="color:green"></span>
+            </h3>
+        </div>
+        <div class="col-3">
+            <span class="float-right">
+                <md-button class="md-primary md-raised" ng-click="open($event,item)">View</md-button>
+                <md-button class="md-warn md-raised" ng-click="showConfirm($event,item._id)">Delete</md-button>
+            </span>
+        </div>
+    </div>
+    <hr>
+</div>

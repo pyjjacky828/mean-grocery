@@ -1,0 +1,20 @@
+<form name="form">
+    <h1>New item</h1>
+    <label>New Title (Required <span style="color: #e32;"> * </span>)</label>
+    <input class="form-control" ng-class="{hasError: form.$invalid && form.$submitted}" ng-model="newitem.title" required>
+    <label>New Note</label>
+    <textarea class="form-control" ng-model="newitem.note"></textarea>
+    <br>
+    <div class="row">
+        <div class="col-6">
+            <span class="float-left">
+                <a class="btn btn-secondary btn-block" href="#/">Back</a>
+            </span>
+        </div>
+        <div class="col-6">
+            <span class="float-right">
+                <button class="btn btn-primary btn-block" type="submit" ng-click="addItem(newitem)">Add New Item</button>
+            </span>
+        </div>
+    </div>
+</form>
