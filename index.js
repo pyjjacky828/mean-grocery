@@ -11,17 +11,17 @@ var db = mongoose.connection;
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname + "/public"));
 
 var port = process.env.PORT || 3000;
 
-app.get('/api/items', (req, res) => {    
+app.get('/api/items', (req, res) => {
 	listitem.getItems((err, items) => {
-		if(err){
+		if (err) {
 			throw err;
-        }
+		}
 		res.json(items);
 	});
 });
@@ -29,7 +29,7 @@ app.get('/api/items', (req, res) => {
 app.post('/api/items', (req, res) => {
 	var Item = req.body;
 	listitem.addItem(Item, (err, Item) => {
-		if(err){
+		if (err) {
 			throw err;
 		}
 		res.json(Item);
@@ -40,7 +40,7 @@ app.put('/api/items/:_id', (req, res) => {
 	var id = req.params._id;
 	var Item = req.body;
 	listitem.updateItem(id, Item, {}, (err, Item) => {
-		if(err){
+		if (err) {
 			throw err;
 		}
 		res.json(Item);
@@ -50,7 +50,7 @@ app.put('/api/items/:_id', (req, res) => {
 app.delete('/api/items/:_id', (req, res) => {
 	var id = req.params._id;
 	listitem.removeItem(id, (err, items) => {
-		if(err){
+		if (err) {
 			throw err;
 		}
 		res.json(items);
